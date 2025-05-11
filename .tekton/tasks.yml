@@ -12,3 +12,19 @@ spec:
         #!/bin/sh
         echo "Cleaning up workspace..."
         rm -rf /workspace/*
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: nose-test
+spec:
+  description: |
+    This task installs dependencies and runs Python tests using nose2.
+  steps:
+    - name: run-tests
+      image: python:3.8
+      script: |
+        #!/bin/sh
+        pip install --upgrade pip
+        pip install nose2
+        nose2
