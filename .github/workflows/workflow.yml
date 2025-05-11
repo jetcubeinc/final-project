@@ -27,3 +27,6 @@ jobs:
       - name: Lint with flake8
         run: |
           flake8 .
+      - name: Run tests with nose2
+        run: |
+          nose2
