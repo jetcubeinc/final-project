@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup-workspace
+spec:
+  description: |-
+    This task cleans up temporary files or folders in the workspace.
+  steps:
+    - name: cleanup
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Cleaning up workspace..."
+        rm -rf /workspace/*
